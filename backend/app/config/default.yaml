@@ -13,7 +13,7 @@ server:
   origins:
     - "*"
 mongodb:
-  uri: "mongodb+srv://rashmi:rashmi123@adcore-mongodb.kqrwl.mongodb.net/?retryWrites=true&w=majority"
+  uri: "mongodb+srv://<dbusername>:<dbpassword>@adcore-mongodb.kqrwl.mongodb.net/?retryWrites=true&w=majority"
   database: "payment_system"
   max_pool_size: 100
   min_pool_size: 10
