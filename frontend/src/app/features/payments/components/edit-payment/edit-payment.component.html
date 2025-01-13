@@ -99,7 +99,7 @@
             <mat-form-field appearance="outline">
               <mat-label>Payment Status</mat-label>
               <mat-select formControlName="payee_payment_status" required
-              [disabled]="paymentForm.get('payee_payment_status')?.value === 'completed'">
+              >
                 
                 <mat-option *ngFor="let status of paymentStatuses" [value]="status">
                   {{status | titlecase}}
@@ -113,7 +113,8 @@
             <mat-form-field appearance="outline">
               <mat-label>Due Date</mat-label>
               <input matInput [matDatepicker]="picker" 
-                     formControlName="due_date" required>
+                     formControlName="due_date" required 
+                     >
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
               <!-- <mat-error *ngIf="paymentForm.get('due_date').errors?.required">
@@ -128,15 +129,17 @@
 
             <mat-form-field appearance="outline">
               <mat-label>Due Amount</mat-label>
-              <input matInput type="number" formControlName="due_amount" required
+              <input matInput type="number" formControlName="due_amount" 
+                      
+              required
                      min="0" step="0.01">
               <span matPrefix>{{currentPaymentData?.currency}} &nbsp;</span>
-              <!-- <mat-error *ngIf="paymentForm.get('due_amount').errors?.required">
+              <mat-error *ngIf="paymentForm.get('due_amount')?.errors?.['required']">
                 Amount is required
               </mat-error>
-              <mat-error *ngIf="paymentForm.get('due_amount').errors?.min">
+              <mat-error *ngIf="paymentForm.get('due_amount')?.errors?.['min']">
                 Amount must be greater than 0
-              </mat-error> -->
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
